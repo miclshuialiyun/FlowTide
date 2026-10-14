@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>缓流 · ADHD 成人的弹性专注与情绪记录</title>
+<meta name="description" content="缓流是一款面向 ADHD 成人的弹性自我记录工具：不打卡、无断签惩罚、数据只保存在你的手机上。记录专注、分心与情绪，看清自己的节奏。">
+<style>
+:root{
+  --brand:#1F9E86;
+  --brand-dark:#0B3B46;
+  --brand-soft:#EDF7F4;
+  --ink:#0D1526;
+  --muted:#5A6478;
+  --line:#E2E8F2;
+  --bg:#FFFFFF;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--ink);line-height:1.75;background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+
+header.hero{
+  background:linear-gradient(160deg,#7FE3CB 0%,#22A491 45%,#0B3B46 100%);
+  color:#fff;text-align:center;padding:64px 20px 56px;
+}
+.brandline{display:inline-flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.5px;margin-bottom:22px}
+.dot{width:13px;height:13px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.22)}
+h1{font-size:38px;line-height:1.3;font-weight:700;margin-bottom:14px}
+.claim{font-size:17px;opacity:.95;margin-bottom:16px}
+.tags{font-size:14px;opacity:.88}
+nav{
+  position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(160%) blur(6px);
+  border-bottom:1px solid var(--line);
+  display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px 16px;
+}
+nav a{
+  color:var(--muted);font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid transparent;
+}
+nav a:hover{background:var(--brand-soft);color:var(--brand-dark);text-decoration:none}
+nav a.active{background:var(--brand);border-color:var(--brand);color:#fff}
+main{max-width:920px;margin:0 auto;padding:44px 20px 60px}
+.lead{text-align:center;font-size:16px;color:var(--muted);max-width:720px;margin:0 auto 46px}
+h2{font-size:24px;font-weight:700;margin-bottom:20px;color:var(--brand-dark)}
+h3{font-size:17px;font-weight:600}
+section{margin-bottom:46px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px;background:var(--brand-soft);
+}
+.card svg{width:26px;height:26px;color:var(--brand);margin-bottom:12px}
+.card p{font-size:14px;color:var(--muted);margin-top:6px}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.principle{
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:#fff;text-align:center;
+}
+.num{
+  width:38px;height:38px;border-radius:50%;background:var(--brand);color:#fff;font-weight:700;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 12px;
+}
+.principle p{font-size:14px;color:var(--muted);margin-top:6px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:6px}
+.plan{border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center}
+.plan.feature{border-color:var(--brand);box-shadow:0 6px 20px rgba(31,158,134,.14)}
+.plan .name{font-size:15px;color:var(--muted)}
+.plan .price{font-size:30px;font-weight:800;color:var(--brand);margin:6px 0}
+.plan .price small{font-size:14px;font-weight:500;color:var(--muted)}
+.plan ul{list-style:none;margin-top:14px;font-size:14px;color:var(--muted)}
+.plan li{padding:4px 0}
+.cta-wrap{text-align:center}
+.cta{
+  display:inline-block;background:var(--brand);color:#fff;font-weight:600;font-size:16px;
+  padding:14px 34px;border-radius:999px;
+}
+.cta:hover{text-decoration:none;background:#18836F}
+.hint{font-size:13px;color:var(--muted);margin-top:12px}
+.callout{border-radius:12px;font-size:14px;margin:18px 0;padding:16px 18px}
+.callout.green{background:var(--brand-soft);border:1px solid var(--brand);color:var(--brand-dark)}
+.callout.amber{background:#FFF6E9;border:1px solid #E4A64C;color:#7A4A05}
+footer{
+  background:var(--brand-dark);color:#C9D6DA;text-align:center;padding:34px 20px;font-size:14px;
+}
+footer .fnav{margin:12px 0}
+footer .fnav a{color:#B6E7DA;margin:0 8px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="brandline"><span class="dot"></span>缓流</div>
+  <h1>ADHD 成人的弹性专注与情绪记录</h1>
+  <p class="claim">不打卡，也不催你。想起来就记一笔，断了就断了。</p>
+  <p class="tags">无需账号 · 数据不出手机 · 零广告零追踪 · 没有断签惩罚</p>
+</header>
+
+<nav>
+  <a class="active" href="index.html">产品主页</a>
+  <a href="support.html">技术支持</a>
+  <a href="privacy.html">隐私政策</a>
+  <a href="terms.html">使用条款</a>
+</nav>
+
+<main>
+  <p class="lead">
+    通用习惯打卡工具追求连续天数，一次中断就把一切归零。但注意力和情绪的起伏，从来不是意志力的问题。
+    缓流只做一件事：让你用几秒钟记下专注、分心和情绪，然后看清自己的节奏。
+  </p>
+
+  <section>
+    <h2>它做什么</h2>
+    <div class="grid">
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 3h6"/></svg>
+        <h3>专注计时</h3>
+        <p>记下每一段专注的时长，以及这段时间里被打断过几次。随时可以停下。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 12c3-6 6 6 9 0s6 6 9 0"/></svg>
+        <h3>分心记录</h3>
+        <p>一键记下是什么把你带走：推送、噪音、还是任务开头太难。慢慢就有了自己的触发词清单。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4c3 4 5 6.5 5 9a5 5 0 0 1-10 0c0-2.5 2-5 5-9z"/></svg>
+        <h3>情绪标签</h3>
+        <p>选一个最接近的情绪，再选强度 1 到 5。不需要写作文，也不用解释。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l5-6 4 3 7-9"/><path d="M4 21h16"/></svg>
+        <h3>回顾与趋势</h3>
+        <p>每日专注趋势、一天里的高效时段、出现最多的分心触发词，一眼就能看到形状。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg>
+        <h3>情绪与专注的关系</h3>
+        <p>按天比较情绪与专注时长，并明确标注：这只是相关性，不代表因果。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 10V5h5"/><path d="M20 14v5h-5"/><path d="M4 5l16 14"/></svg>
+        <h3>自定义标签</h3>
+        <p>用你自己的说法命名分心和情绪，而不是被预设的选项框住。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M4 18h16"/></svg>
+        <h3>导出与备份</h3>
+        <p>导出 CSV 交给表格软件或带去就诊时参考，完整备份文件用于换设备。</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4a8 8 0 1 0 6.5 3.4"/><circle cx="18.5" cy="7.5" r="1.6"/><path d="M4 20c2-1.4 4-1.4 6 0"/></svg>
+        <h3>没有断签这回事</h3>
+        <p>没有连续天数，没有失败提示，也没有积分排名。隔了两周回来，接着记就好。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>三条不会变的承诺</h2>
+    <div class="principles">
+      <div class="principle"><div class="num">1</div><h3>零广告零追踪</h3><p>不含任何广告与第三方统计 SDK，不采集设备标识符。</p></div>
+      <div class="principle"><div class="num">2</div><h3>数据只在你手机上</h3><p>不需要注册账号，记录不上传服务器，只有你主动导出才会离开设备。</p></div>
+      <div class="principle"><div class="num">3</div><h3>付费透明</h3><p>金额、周期、续费方式与取消路径写在同一屏。随时可取消，已记录的数据不会被收回。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>免费与完整版</h2>
+    <p class="lead" style="margin-bottom:20px">
+      免费版可以完整使用记录与回顾功能，累计 50 条记录。完整版解除记录条数上限，并解锁自定义标签与 CSV 导出。
+      已有的记录不会因为额度用完而被隐藏，也不会过期。
+    </p>
+    <div class="plans">
+      <div class="plan">
+        <div class="name">免费</div>
+        <div class="price">¥0</div>
+        <ul>
+          <li>三类记录与今日概览</li>
+          <li>累计 50 条记录</li>
+          <li>基础回顾与趋势</li>
+          <li>完整数据备份</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <div class="name">按月订阅</div>
+        <div class="price">¥6<small> / 月</small></div>
+        <ul>
+          <li>无限记录</li>
+          <li>自定义标签</li>
+          <li>CSV 导出</li>
+          <li>完整回顾</li>
+        </ul>
+      </div>
+      <div class="plan feature">
+        <div class="name">按年订阅</div>
+        <div class="price">¥48<small> / 年</small></div>
+        <ul>
+          <li>折合每月约 ¥4</li>
+          <li>比按月订阅省约 33%</li>
+          <li>其余权益与按月相同</li>
+          <li>随时可取消</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout green">
+      订阅会自动续期。费用在你确认购买时从 Apple 账户扣除；除非在当前订阅周期结束前至少 24 小时取消，否则会自动续订。
+      你可以在 iPhone 的「设置 → Apple 账户 → 订阅」中随时查看、管理或取消，也可以在 App 内使用「恢复购买」找回权益。
+      价格以 App Store 结算页面最终显示为准。
+    </div>
+  </section>
+
+  <section class="cta-wrap">
+    <h2>现在开始记录</h2>
+    <p style="color:var(--muted);font-size:15px;margin-bottom:22px">下载与购买均通过 Apple 完成。</p>
+    <a class="cta" href="https://apps.apple.com/cn/search?term=缓流">在 App Store 下载</a>
+    <p class="hint">上线后此处会指向正式的 App Store 应用页面。</p>
+  </section>
+
+  <div class="callout amber">
+    缓流是一款自我记录与自我观察工具。它记录并呈现你填写的内容，帮助你看清自己的节奏，
+    但不提供医疗诊断、治疗建议或疗效承诺，也不能替代专业医疗人员的评估。如果你正被注意力或情绪问题严重影响生活，建议寻求专业帮助。
+  </div>
+</main>
+
+<footer>
+  <div><span class="dot" style="display:inline-block;vertical-align:middle;margin-right:8px"></span>缓流 · ADHD 成人的弹性专注与情绪记录</div>
+  <div class="fnav">
+    <a href="index.html">产品主页</a>·<a href="support.html">技术支持</a>·<a href="privacy.html">隐私政策</a>·<a href="terms.html">使用条款</a>
+  </div>
+  <div>© 2026 缓流 · Bundle ID：cn.pengcheng.flowtide</div>
+  <div style="margin-top:6px;opacity:.7;font-size:13px">App 内不含广告与第三方追踪 SDK</div>
+</footer>
+
+</body>
+</html>
